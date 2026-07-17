@@ -1,20 +1,45 @@
-     )
+const searchInput = document.getElementById('search');
+const loading = document.getElementById('loading');
+const error = document.getElementById('error');
+const countriesDiv = document.getElementById('countries');
 
-        .then(data => {
+let countries = [];
 
-            countries = data;
+// Fetch all countries on page load
+fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+        countries = data;
+        loading.textContent = "";
+        displayCountries(countries);
+    })
+    .catch(err => {
+        error.textContent = "Failed to load countries";
+    });
 
-            loading.textContent = "";
-
-            displayCountries(countries);
-
-      
-   
-
+// Search functionality
+searchInput.addEventListener('input', (e) => {
+    const searchText = e.target.value.toLowerCase();
+    
     const filteredCountries = countries.filter(country =>
         country.name.common.toLowerCase().includes(searchText)
     );
-
+    
     displayCountries(filteredCountries);
 });
-   
+
+// Display countries function
+function displayCountries(countriesToDisplay) {
+    countriesDiv.innerHTML = '';
+    
+    countriesToDisplay.forEach(country => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <img src="${country.flags.svg}" alt="${country.name.common}">
+            <h3>${country.name.common}</h3>
+            <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
+        `;
+        countriesDiv.appendChild(card);
+    });
+}
