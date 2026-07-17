@@ -1,4 +1,4 @@
-[2:44 PM, 7/17/2026] Ayesha Asad: searchInput.addEventListener("input", () => {
+document.addEventListerner(DOMContentLoaded",() => {
     const searchText = searchInput.value.toLowerCase();
 
     const filteredCountries = countries.filter(country => 
@@ -31,5 +31,7 @@ searchInput.addEventListener('input', (e) => {
     const searchText = e.target.value.toLowerCase();
 
     const filteredCountries = countries.filter(country => 
-        co…
-
+        country.name.common.toLowerCase().includes(searchText)
+                                               );
+    displayCountries(filteredCountries);
+  });
