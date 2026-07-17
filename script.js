@@ -6,7 +6,7 @@ const countriesDiv = document.getElementById('countries');
 let countries = [];
 
 // Fetch all countries on page load
-fetch('https://restcountries.com/v3.1/all')
+fetch('https://openmarket.pk/api/countries')
     .then(response => response.json())
     .then(data => {
         countries = data;
@@ -36,7 +36,7 @@ function displayCountries(countriesToDisplay) {
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-            <img src="${country.flags.svg}" alt="${country.name.common}">
+            <img src="${country.flags.png}" alt="${country.name.common}">
             <h3>${country.name.common}</h3>
             <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
         `;
