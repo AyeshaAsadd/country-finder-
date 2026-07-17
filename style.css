@@ -1,21 +1,30 @@
-body{ 
+body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f4f4f4;
     padding: 20px;
 }
-#search{
+
+#search {
     padding: 10px;
     width: 300px;
     margin-bottom: 20px;
 }
-#countries{
-    display:grid;
+
+#countries {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;     
-}.card img{width: 100%;}
-#error{
-    color: red;}
-#loading{
-    color: green;                          
+    gap: 20px;
+}
+
+.card img {
+    width: 100%;
+}
+
+#error {
+    color: red;
+}
+
+#loading {
+    color: green;
 }
