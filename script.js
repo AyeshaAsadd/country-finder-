@@ -11,7 +11,7 @@ function fetchCountries() {
 
     loading.textContent = "Loading countries...";
 
-    fetch("https://restcountries.com/v3.1/all?fields=name,flags,population")
+    fetch("https://restcountries.com/v3.1/all")
 
         .then(response =>
          response.json()
